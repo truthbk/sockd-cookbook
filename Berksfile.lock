@@ -1,0 +1,7 @@
+DEPENDENCIES
+  sockd
+    path: .
+    metadata: true
+
+GRAPH
+  sockd (0.0.1)
