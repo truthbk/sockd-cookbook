@@ -20,6 +20,7 @@ ark 'dante' do
   notifies :run, 'execute[configure dante]'
   notifies :run, 'execute[make dante]'
   notifies :run, 'execute[checkinstall dante]'
+  notifies :run, 'systemd_unit[sockd.service]', :delayed
 end
 
 execute 'configure dante' do

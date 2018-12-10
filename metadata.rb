@@ -2,7 +2,7 @@ name 'sockd'
 maintainer 'Alexander Pyatkin'
 maintainer_email 'aspyatkin@gmail.com'
 license 'MIT'
-version '0.1.0'
+version '0.1.1'
 description 'Install and configure Dante - A free SOCKS server'
 
 recipe 'sockd::default', 'Install and configure Dante - A free SOCKS server'
