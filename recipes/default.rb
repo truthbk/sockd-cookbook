@@ -20,7 +20,9 @@ ark 'dante' do
   notifies :run, 'execute[configure dante]'
   notifies :run, 'execute[make dante]'
   notifies :run, 'execute[checkinstall dante]'
-  notifies :run, 'systemd_unit[sockd.service]', :delayed
+  notifies :create, 'systemd_unit[sockd.service]', :delayed
+  notifies :enable, 'systemd_unit[sockd.service]', :delayed
+  notifies :start, 'systemd_unit[sockd.service]', :delayed
 end
 
 execute 'configure dante' do
@@ -127,5 +129,5 @@ systemd_unit 'sockd.service' do
   if ::Chef::VERSION >= 14.0
     verify false
   end
-  action [:create, :enable, :start]
+  action :nothing
 end
